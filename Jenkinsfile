@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo 'Stage 1: Building the application...'
                 echo 'Tool: Maven - compiles source code and packages it into a JAR/WAR artifact'
-                sh 'echo "mvn clean package (mock)"'
+                bat 'echo mvn clean package (mock)'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Stage 2: Running automated tests...'
                 echo 'Tools: JUnit for unit tests, Selenium/Postman for integration tests'
-                sh 'echo "mvn test (mock)"'
+                bat 'echo mvn test (mock)'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo 'Stage 3: Analysing code quality against industry standards...'
                 echo 'Tool: SonarQube / SonarCloud - checks code smells, duplication, maintainability'
-                sh 'echo "sonar-scanner (mock)"'
+                bat 'echo sonar-scanner (mock)'
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo 'Stage 4: Scanning for known vulnerabilities...'
                 echo 'Tool: Snyk / Trivy / OWASP Dependency-Check'
-                sh 'echo "snyk test (mock)"'
+                bat 'echo snyk test (mock)'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 echo 'Stage 5: Deploying to staging server...'
                 echo 'Tool: Ansible / AWS EC2 via SSH - copies artifact to a staging EC2 instance'
-                sh 'echo "ansible-playbook deploy-staging.yml (mock)"'
+                bat 'echo ansible-playbook deploy-staging.yml (mock)'
             }
         }
 
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 echo 'Stage 6: Running integration tests in the staging environment...'
                 echo 'Tool: Postman/Newman or Selenium against the staging URL'
-                sh 'echo "newman run staging-tests.json (mock)"'
+                bat 'echo newman run staging-tests.json (mock)'
             }
         }
 
@@ -58,7 +58,7 @@ pipeline {
             steps {
                 echo 'Stage 7: Deploying to production server...'
                 echo 'Tool: AWS CodeDeploy / Ansible / Docker to a production EC2 instance'
-                sh 'echo "deploy to production EC2 (mock)"'
+                bat 'echo deploy to production EC2 (mock)'
             }
         }
     }
